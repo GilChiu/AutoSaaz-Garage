@@ -1,0 +1,516 @@
+main {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+}
+.section-left {
+  width: 66.666vw;
+  min-height: 100vh;
+  background: url('../assets/Background-1.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+.section-right {
+  width: 33.333vw;
+  min-height: 100vh;
+  background: #00253A;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .section-left, .section-right {
+    width: 100vw;
+    min-height: 50vh;
+  }
+  main {
+    flex-direction: column;
+  }
+}
+
+.top-right-corner {
+    position: fixed;
+    top: 0;
+    right: 33.333vw;
+    width: 20vw; /* Adjust as needed for your PNG size */
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bottom-left-corner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 20vw; /* Adjust as needed for your PNG size */
+    height: auto;
+    display: block;
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* ===== Now Playing Card ===== */
+.now-playing-card{
+  width: 50vw;
+  height: 23vh;
+  background: #21384A;
+  box-shadow: 0vw 0.6vw 0.6vw rgba(0, 0, 0, 0.25);
+  border-radius: 2vw;
+  margin-left: 8.3335vw;
+  margin-top: 2vh;
+  z-index: 1;
+  position: relative;
+}
+
+.now-playing-title {
+  font-family: 'Avenir LT Std';
+}
+
+#now-playing-title {
+  font-family: 'Avenir LT Std';
+  font-size: 2vw;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 0.05em;
+  color: #AC9D78;
+  display: inline-block;
+  white-space: nowrap;
+  transition: transform 0.3s;
+}
+
+#now-playing-artist {
+  font-family: 'Avenir LT Std';
+  font-size: 1.5vw;
+  color: var(--accent-color, #FFFFFF);
+  margin-bottom: 0.2em;
+}
+
+#now-playing-shout-out {
+  font-size: 1em;
+  color: #AC9D78;
+  margin-left: .5vw;
+  font-family: 'Avenir LT Std';
+  font-style: medium;
+}
+
+.shoutout-box img {
+  max-height: 2vw;
+  max-width: 2vw;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+#now-playing-user {
+  font-size: 0.95em;
+  color: #b0c4de;
+  margin-left: 0.5vw;
+  margin-top: 0.5vw;
+  white-space: nowrap;
+}
+
+#now-playing-votes {
+  font-size: 2vw;
+  margin-bottom: 0.2em;
+  color: #AC9D78;
+  font-family: 'Avenir LT Std';
+}
+
+/* Touch-friendly sizing */
+.now-playing-card h1,
+.now-playing-card h2,
+.now-playing-card div {
+  min-height: 44px;
+  line-height: 1.2;
+}
+
+.now-playing-card img {
+  width: 15vw;
+  height: auto;
+  border-radius: 1vw;
+  margin-bottom: 1vh;
+}
+
+.three-column-layout {
+  display: flex;
+  padding: 1rem;
+}
+
+.now-playing-image-holder {
+  box-shadow: 0px .5vw .5vw rgba(0, 0, 0, 0.25);
+  height: 10vw;
+  width: 10vw;
+  margin: 1vw;
+}
+
+.title-column {
+  flex: 1; 
+  padding: 1rem;
+  margin: 1vw .2vw 0 1vw;
+  font-weight: 900;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.vote-column {
+  flex: 1; 
+  border-radius: 12px;
+  font-size: 1.2vw;
+  margin-left: 4vw;
+
+}
+
+.scroll-animate {
+  animation: scroll-left 10s linear infinite;
+  display: inline-block;
+  padding-left: 100%;
+}
+
+/* Shout out Columns */
+.two-column-layout {
+  display: flex;
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+.column {
+  flex: 1; 
+  box-sizing: border-box;
+  max-width: 4vw;
+}
+
+
+/* ===== Up Next Section ===== */
+.up-next-card {
+  border: 0.2vw solid #ccc;
+  border-radius: 1vw;
+  padding: 1vw;
+  font-size: 1.2rem;
+  margin-top: 2vh;
+  width: 40vw;
+  margin: 2vh auto 0 auto;
+}
+
+.up-next-label {
+  color: #AC9D78;
+  font-family: 'Avenir LT Std';
+  font-size: 1.5vw;
+}
+.up-next-title {
+  font-family: 'Avenir LT Std';
+}
+
+#up-next-title {
+  font-family: 'Avenir LT Std';
+  font-size: 2vw;
+  font-weight: bold;
+  color: #FFFFFF;
+  display: inline-block;
+  white-space: nowrap;
+  transition: transform 0.3s;
+}
+
+#up-next-artist {
+  font-family: 'Avenir LT Std';
+  font-size: 1.5vw;
+  color: var(--accent-color, #FFFFFF);
+}
+
+#up-next-shout-out {
+  font-size: 1em;
+  font-style: italic;
+  color: #AC9D78;
+  margin-bottom: 0.2em;
+  margin-left: .5vw;
+  margin-top: auto;
+}
+
+#up-next-votes {
+  font-size: 1.5vw;
+  color: #ffffff;
+  font-family: 'Avenir LT Std';
+  margin-left: 1.5vw;
+}
+
+/* Touch-friendly sizing
+.now-playing-card h1,
+.now-playing-card h2,
+.now-playing-card div {
+  min-height: 44px;
+  line-height: 1.2;
+} */
+
+.up-next-card img {
+  width: 10vw;
+  height: auto;
+  border-radius: 1vw;
+  margin-bottom: 1vh;
+}
+
+.up-next-three-column-layout {
+  display: flex;
+  padding: 1rem;
+}
+
+.up-next-image-holder {
+  box-shadow: 0px .5vw .5vw rgba(0, 0, 0, 0.25);
+  height: 4vw;
+  width: 4vw;
+  margin: 1vw;
+}
+
+.up-next-title-column {
+  flex: 1; 
+  padding: 1rem;
+  margin: 1vw .2vw 0 1vw;
+  font-weight: 900;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.up-next-vote-column {
+  flex: 1; 
+  border-radius: 12px;
+  font-size: 1.2vw;
+  margin-left: 6vw;
+  margin-top: 5vh;
+
+}
+
+.scroll-animate {
+  animation: scroll-left 10s linear infinite;
+  display: inline-block;
+  padding-left: 100%;
+}
+
+/* ===== Songs Section ===== */
+.song-list-container {
+  width: 100%;
+  margin-top: .5vw;
+  overflow-x: auto;
+}
+.song-list {
+  display: flex;
+  flex-direction: column;
+}
+.song-row {
+  display: grid;
+  grid-template-columns: 44px 1fr 80px;
+  align-items: center;
+  touch-action: manipulation;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  border-bottom: 2px solid #4C4C4C;
+}
+
+.song-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.song-title {
+  font-size: 2vh;
+  font-weight: 600;
+  font-family: 'Avenir LT Std';
+  color: #ffffff;
+  margin-left: 2vw;
+  margin-top: 1.5vh;
+}
+.song-artist {
+  font-size: 1.5vh;
+  font-family: 'Avenir LT Std';
+  color: #ffffff;
+  margin-left: 2vw;
+}
+.song-votes {
+  font-size: 2vh;
+  font-weight: clamp(500, 2vw, 800);
+  font-family: 'Avenir LT Std';
+  color: #ffffff;
+  text-align: right;
+}
+
+.songs-card{
+  height: 10vh;
+  background-color: #eee;
+  width: 40vw;
+}
+
+#musica-logo{
+  width: 20vw;
+}
+
+
+/* Right Side panel */
+.Brand-description {
+  font-family: 'Avenir LT Std';
+  font-size: 1.5vw;
+  color: #AC9D78;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.events {
+  color: #AC9D78;
+  font-family: 'Avenir LT Std';
+  font-size: 2.5vw;
+  font-weight: bold;
+  margin-top: 3vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Avenir LT Std';
+  color: #ffffff;
+  margin-left: 2vw;
+}
+.event-item {
+  margin-bottom: 1vh;
+  font-size: 1.2vw;
+}
+.event-title {
+  font-weight: bold;
+  font-size: 1vw;
+  color: #ffffff;
+  font-family: 'Avenir LT Std';
+  margin-left: 1vw;
+}
+.event-card {
+  background: #AC9D78;
+  border-radius: 3vh;
+  padding: 1vw;
+  margin-bottom: 1vh;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: .5vh;
+  box-shadow: 0vw 0.6vw 0.6vw rgba(0, 0, 0, 0.25);
+
+}
+
+/* === Specials === */
+.specials-card {
+  background-color: #206b5b;
+  font-family: 'Avenir LT Std';
+  font-size: 2.5vw;
+  font-weight: bold;
+  margin-top: 3vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  height: 33vh;
+  border-radius: 3vh;
+  box-shadow: 0vw 0.6vw 0.6vw rgba(0, 0, 0, 0.25);
+}
+
+
+@media (min-width: 600px) {
+  .song-row {
+    grid-template-columns: 56px 2fr 100px;
+    min-height: 64px;
+  }
+  .song-image {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* --- 1440px --- */
+@media (max-width: 1440px) {
+  .shoutout-box {
+    margin-top: 4vh;
+  }
+  
+}
+
+/* --- 4K UHD (2160p) --- */
+@media (min-width: 3840px) {
+  .shoutout-box {
+    margin-top: 2vh;
+  }
+  .column {
+  flex: 1; 
+  box-sizing: border-box;
+  max-width: 2vw;
+  margin-top: 5vh;
+}
+}
+
+/* --- 720p HD --- */
+@media (width: 1280px) and (height: 720px) {
+  .shoutout-box{
+    margin-top: 0.01vh !important;
+  }
+  .column {
+  flex: 1; 
+  box-sizing: border-box;
+  max-width: 2vw;
+  margin-top: 1vh;
+}
+#now-playing-shout-out {
+  font-size: 1em;
+  font-style: italic;
+  color: #AC9D78;
+  margin-bottom: 0.2em;
+  margin-left: .5vw;
+  margin-top: 3vh;
+}
+}
+
+/* --- 1366x768 or lower TV sizes --- */
+@media (max-width: 1920px) {
+  .shoutout-box {
+    margin-top: 5vh;
+  }
+  .column {
+  flex: 1; 
+  box-sizing: border-box;
+  max-width: 2vw;
+  }
+
+  
+}
+
+/* --- Ultra-wide screens (e.g., 3440x1440) --- */
+@media (min-width: 3440px) {
+  .shoutout-box {
+    margin-top: 5vh;
+  }
+  .column {
+  flex: 1; 
+  box-sizing: border-box;
+  max-width: 2vw;
+  margin-top: .1vh;
+  }
+  #now-playing-shout-out {
+  font-size: 1em;
+  font-style: italic;
+  color: #AC9D78;
+  margin-bottom: 0.2em;
+  margin-left: .5vw;
+  margin-top: 3vh;
+}
+}

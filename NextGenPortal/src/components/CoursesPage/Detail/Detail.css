@@ -1,0 +1,144 @@
+.container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #27ae60;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.course-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.topics-requirements {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.column h4 {
+  color: #27ae60;
+  margin-bottom: 0.5rem;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.column li {
+  margin-bottom: 0.4rem;
+}
+
+.included-box {
+  background-color: #fff4db;
+  border: 1px solid #f2d78e;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.included-box h4 {
+  margin-bottom: 0.5rem;
+  color: #7f6000;
+}
+
+.included-box ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.included-box li {
+  margin-bottom: 0.4rem;
+}
+
+.green {
+  color: #2ecc71;
+}
+
+.blue {
+  color: #3498db;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.3rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.back {
+  background-color: #f4f4f4;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.enroll {
+  background-color: #2a64d6;
+  color: white;
+  border: none;
+}
+
+.back:hover {
+  background-color: #e0e0e0;
+}
+
+.enroll:hover {
+  background-color: #1d4db8;
+}
+
+@media (max-width: 600px) {
+  .topics-requirements {
+    flex-direction: column;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}

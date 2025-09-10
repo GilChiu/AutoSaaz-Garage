@@ -1,0 +1,114 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Development Server",
+            "type": "shell",
+            "command": "python",
+            "args": ["-m", "http.server", "8000"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "detail": "Start a local HTTP server for development"
+        },
+        {
+            "label": "Open in Browser",
+            "type": "shell",
+            "command": "start",
+            "args": ["http://localhost:8000"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "detail": "Open the application in default browser"
+        },
+        {
+            "label": "Validate HTML",
+            "type": "shell",
+            "command": "npx",
+            "args": ["html-validate", "index.html"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "detail": "Validate HTML markup"
+        },
+        {
+            "label": "Check CSS",
+            "type": "shell",
+            "command": "npx",
+            "args": ["stylelint", "css/**/*.css"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "detail": "Lint CSS files"
+        },
+        {
+            "label": "Check JavaScript",
+            "type": "shell",
+            "command": "npx",
+            "args": ["eslint", "js/**/*.js"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "detail": "Lint JavaScript files"
+        },
+        {
+            "label": "Build for Production",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Write-Host 'Building MUSICA for production...'; if (!(Test-Path 'dist')) { New-Item -ItemType Directory -Path 'dist' }; Copy-Item -Path 'index.html', 'css', 'js', 'assets' -Destination 'dist' -Recurse -Force; Write-Host 'Build complete! Files copied to dist/ folder.'"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "detail": "Copy files to dist folder for production deployment"
+        },
+        {
+            "label": "Clean Build",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "if (Test-Path 'dist') { Remove-Item -Path 'dist' -Recurse -Force; Write-Host 'Build directory cleaned.' } else { Write-Host 'No build directory to clean.' }"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "detail": "Clean the build directory"
+        }
+    ]
+}

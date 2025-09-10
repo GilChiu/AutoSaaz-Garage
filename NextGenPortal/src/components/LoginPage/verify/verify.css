@@ -1,0 +1,134 @@
+.verify-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f7f7;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.verify-box {
+  background: #fff;
+  width: 100%;
+  max-width: 480px;        
+  border: 1px solid #ddd;  
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.verify-box h2 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.verify-box p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.verify-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.code-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.code-input {
+  width: 50px;       
+  height: 55px;      
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f9f9f9;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.code-input:focus {
+  border-color: #007acc;
+  background: #fff;
+}
+
+.resend-text {
+  font-size: 13px;
+  color: #444;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.resend-text a {
+  color: #007acc;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.resend-text a:hover {
+  text-decoration: none;
+}
+
+.verify-button {
+  background-color: #007acc;
+  border: none;
+  padding: 14px 0;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+}
+.verify-button:hover,
+.verify-button:focus {
+  text-decoration: none;
+  background-color: #005f99;
+}
+
+.back-link {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #007acc;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 500px) {
+  .verify-box {
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .code-input {
+    width: 45px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .verify-button {
+    max-width: 100%;
+    font-size: 14px;
+    padding: 12px 0;
+  }
+}

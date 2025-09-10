@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSICA - Music Jukebox</title>
+    <link rel="stylesheet" href="css/full-screen2.css">
+</head>
+<body aria-label="Background image page" style="min-height: 100vh; margin: 0; position: relative; overflow: hidden;">
+  <main>
+
+    <!-- Left Section -->
+    <div class="section-left">
+        <img src="assets/top-right.png" alt="" class="top-right-corner" aria-hidden="true">
+        <div class="now-playing-card">
+          <div class="three-column-layout">
+            <div class="now-playing-image-holder">
+              <img 
+                id="now-playing-image" 
+                src="assets/default-artwork.svg" 
+                alt="Now playing artwork" 
+                style="width: 100%; height: 100%; max-width: 100%; border-radius: 16px; touch-action: manipulation; display: block;"
+              >
+            </div>
+            <div class="title-column" id="scrollingText">
+              <h1 id="now-playing-title"></h1>
+              <h2 id="now-playing-artist"></h2>
+              <!-- Now Playing button -->
+               <button style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  background-color: #7C7256;
+                  border: none;
+                  border-radius: 999px;
+                  color: #FEF7FF;
+                  font-size: 1.5vw;
+                  padding: 0.5rem 2rem;
+                  font-family: Avenir LT Std;
+                  width: 14vw;
+                  height: 5vh;
+                  justify-content: center;
+                  margin-top: 1vw;
+                  ">
+                  Now playing
+                  <svg width="1.5vw" height="1.5vw" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 9.4L0 5.4L1.4 4L4 6.6L10.6 0L12 1.4L4 9.4Z" fill="#FEF7FF"/>
+                  </svg>
+
+              </button>
+            </div>
+            <div class="vote-column">
+              <div id="now-playing-shout-out"></div>
+             <div class="shoutout-box">
+              <div class="two-column-layout">
+                <!-- Left Column -->
+                <div class="column">
+                  <img src="assets/shoutout.png" alt="Shoutout" />
+                </div>
+                <div class="column">
+                  <!-- Right column content -->
+                  <div id="now-playing-user"></div>
+                </div>
+              </div>
+            </div>
+            <div id="now-playing-votes"> Votes</div>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- Up Next Section -->
+         <div class="up-next-card">
+          <div class="up-next-label">Up Next</div>
+            <div class="up-next-three-column-layout">
+            <div class="up-next-image-holder">
+              <img 
+                id="up-next-image"
+                src="assets/image-placeholder.png" 
+                alt="Now playing artwork" 
+                style="width: 100%; height: 100%; max-width: 100%; border-radius: 16px; touch-action: manipulation; display: block;"
+              >
+            </div>
+            <div class="up-next-title-column" id="scrollingText-up-next">
+              <div id="up-next-title"></div>
+              <div id="up-next-artist"></div>
+            </div>
+            <div class="up-next-vote-column">
+              <div id="up-next-votes"></div>
+            </div>
+            </div>
+            
+          </div>
+          <div class="song-list-container" aria-label="Song list">
+            <ul id="song-list" class="song-list">
+              <!-- Songs will be dynamically injected here by JS -->
+            </ul>
+          </div>
+          
+         </div>
+        
+    <!-- Bottom left composite circle -->
+    <img src="assets/bottom-left.png" alt="" class="bottom-left-corner" aria-hidden="true">
+    </div>
+    <div class="section-right">
+      <div class="logo-container" style="display: flex; justify-content: center; align-items: flex-start; width: 100%; height: 20vh; position: relative;">
+        <img 
+          id="musica-logo"
+          src="assets/musica-logo.png" 
+          alt="MUSICA Logo" 
+          style="display: block; margin-top: 2vw; max-width: 60vw; height: auto;"
+          aria-label="MUSICA logo"
+        >
+      </div>
+      <div class="Brand-description">
+        Hospitality and entertainment<br>
+        with music at its heart and soul
+      </div>
+      <div class="events">Upcoming Events</div>
+      <div class="event-card">
+        <ul class="event-list" style="list-style: none; padding: 0; margin: 0;">
+        <li class="event-item" style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+          <div class="event-column" style="display: flex;">
+            <!-- Left Column (Image) -->
+            <div class="event-left" style="flex-shrink: 0;">
+              <img src="assets/image-placeholder.png" alt="Live Music Night" style="width: 3vw; height: 5vh; border-radius: 12px; object-fit: cover;" />
+            </div>
+            <!-- Right Column (Title + Date) -->
+            <div class="event-right">
+              <div class="event-title" style="font-weight: bold;  font-size: 3vh;">Live Music Night</div>
+              <div style="font-size: 0.95rem; color: #504f4e; font-size: 2vh; margin-left: 1vw;">Date: July 15th</div>
+            </div>
+          </div>
+        </li>
+
+        <li class="event-item" style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+          <div class="event-column" style="display: flex;">
+            <div class="event-left" style="flex-shrink: 0;">
+              <img src="assets/image-placeholder.png" alt="Comedy Show" style="width: 3vw; height: 5vh; border-radius: 12px; object-fit: cover;" />
+            </div>
+            <div class="event-right">
+              <div class="event-title" style="font-weight: bold; font-size: 3vh;">Comedy Show</div>
+              <div style="font-size: 0.95rem; color: #504f4e; font-size: 2vh; margin-left: 1vw;">Date: July 22nd</div>
+            </div>
+          </div>
+        </li>
+
+        <li class="event-item" style="display: flex; gap: 1rem; align-items: center;">
+          <div class="event-column" style="display: flex;">
+            <div class="event-left" style="flex-shrink: 0;">
+              <img src="assets/image-placeholder.png" alt="Karaoke Night" style="width: 3vw; height: 5vh; border-radius: 12px; object-fit: cover;" />
+            </div>
+            <div class="event-right">
+              <div class="event-title" style="font-weight: bold; font-size: 3vh;">Karaoke Night</div>
+              <div style="font-size: 0.95rem; color: #504f4e; font-size: 2vh; margin-left: 1vw;">Date: July 29th</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div id="session-info" style="color: white; font-size: 1.2rem;"></div>
+      </div>
+      <div class="specials-card">
+      </div>
+    </div>
+  </main>
+  <script type="module" src="js/detectOverflow.js"></script>
+  <script type="module" src="js/fetchCurrentSong.js"></script>
+  <script type="module" src="js/fetchUpNext.js"></script>
+  <script type="module" src="js/fetchSongs.js"></script>
+  <script type="module" src="js/fetchSession.js"></script>
+  <script type="module" src="js/testfetch.js"></script>
+</body>
+
+  
+
+</html>

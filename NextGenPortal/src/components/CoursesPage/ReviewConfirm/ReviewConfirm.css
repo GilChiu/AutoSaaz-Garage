@@ -1,0 +1,148 @@
+.review-container {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  background: #f7f7f7;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.review-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.title {
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 25px;
+}
+.section {
+  margin-bottom: 30px;
+}
+
+.order-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #f9f4ed;
+  padding: 15px;
+  border-radius: 6px;
+  gap: 20px;
+}
+
+.order-right {
+  text-align: right;
+  flex: 1;
+  min-width: 200px;
+}
+
+.price {
+  color: #ff6600;
+  font-weight: bold;
+  font-size: 20px;
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.info-grid input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.payment-method {
+  background: #f9f4ed;
+  padding: 12px;
+  border-radius: 6px;
+}
+.checkboxes label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.checkboxes input {
+  margin-right: 8px;
+}
+
+.checkboxes a {
+  color: #007bff;
+  text-decoration: none;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.back-btn,
+.enroll-btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  transition: 0.3s;
+}
+
+.back-btn {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+.enroll-btn {
+  background: #007bff;
+  color: white;
+}
+
+.enroll-btn:hover {
+  background: #0056b3;
+}
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-grid {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .order-right {
+    text-align: left;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .back-btn,
+  .enroll-btn {
+    width: 100%;
+  }
+}

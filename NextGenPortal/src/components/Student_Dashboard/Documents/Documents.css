@@ -1,0 +1,126 @@
+.documents-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f9fafb;
+  flex-direction: row;
+}
+
+.documents-wrapper {
+  flex: 1;
+  padding: 2rem;
+}
+
+.documents-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.documents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.document-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.2s ease;
+}
+
+.document-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.document-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.doc-icon {
+  font-size: 1.8rem;
+  color: #e63946; 
+}
+
+/* Remove underline from links inside document cards */
+.document-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.document-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.document-info p {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.download-icon {
+  font-size: 1.6rem;
+  color: #007bd3; 
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .documents-layout {
+    flex-direction: column;
+  }
+
+  .documents-wrapper {
+    padding: 1rem;
+  }
+
+  .documents-title {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .documents-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .document-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .download-icon {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .documents-title {
+    font-size: 1.1rem;
+  }
+
+  .document-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .document-info p {
+    font-size: 0.8rem;
+  }
+
+  .doc-icon {
+    font-size: 1.6rem;
+  }
+
+  .download-icon {
+    font-size: 1.4rem;
+  }
+}

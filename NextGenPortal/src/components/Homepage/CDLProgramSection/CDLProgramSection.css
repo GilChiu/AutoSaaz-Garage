@@ -1,0 +1,134 @@
+.cdl-program-section {
+  max-width: 1178px;
+  margin: 64px auto;
+  padding: 0 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.cdl-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.cdl-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.cdl-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.cdl-badge.blue {
+  background-color: #0074e8;
+  color: white;
+}
+
+.cdl-badge.green {
+  background-color: #e8fbe8;
+  color: #059669;
+  border: 1px solid #059669;
+}
+
+.cdl-cards-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cdl-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  width: 100%;
+  max-width: 570px;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+
+.cdl-card-header {
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.blue-bg {
+  background-color: #0074e8;
+}
+
+.green-bg {
+  background-color: #22c55e;
+}
+
+.cdl-card-content {
+  padding: 20px;
+}
+
+.launch-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.launch-item p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.benefits-box {
+  background-color: #f1f5f9;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 20px;
+}
+
+.benefits-box strong {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.benefits-box ul {
+  padding-left: 16px;
+  margin: 0;
+  font-size: 13px;
+  color: #444;
+}
+
+.requirements-list {
+  padding-left: 20px;
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.requirements-list li::marker {
+  color: #22c55e;
+}
+
+@media (max-width: 960px) {
+  .cdl-cards-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cdl-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}

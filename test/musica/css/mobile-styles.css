@@ -1,0 +1,1016 @@
+/* Floating Credits label */
+.credits-label {
+  font-size: clamp(12px, 3vw, 18px);
+  margin-right: 4px;
+  font-family: 'Avenir LT Std';
+  color: #ffffff;
+}
+.credits-content-value {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(12px, 3vw, 18px);
+  color: #AC9D78;
+  font-family: 'Avenir LT Std';
+  font-weight: bold;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Animate credits-tab fade/slide out when open, and delay fade/slide in when closing */
+.floating-credits .credits-tab {
+  transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1) 0s, transform 0.35s cubic-bezier(0.4,0,0.2,1) 0s;
+  transform: translateX(0);
+  opacity: 1;
+}
+.floating-credits.open .credits-tab {
+  opacity: 0;
+  transform: translateX(30%);
+  pointer-events: none;
+  transition-delay: 0s, 0s;
+}
+.floating-credits:not(.open) .credits-tab {
+  transition-delay: 0.1s, 0.1s;
+}
+
+.credits-circle-wrapper {
+  position: relative;
+  display: inline-block;
+  width: clamp(24px, 7vw, 36px);
+  height: clamp(24px, 7vw, 36px);
+  vertical-align: middle;
+}
+.credits-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(24px, 7vw, 36px);
+  height: clamp(24px, 7vw, 36px);
+  display: block;
+  z-index: 1;
+}
+.credits-bg {
+  opacity: 0.18;
+}
+.credits-progress {
+  transition: stroke-dashoffset 0.5s linear;
+  z-index: 2;
+}
+.credits-tab-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(12px, 4vw, 18px);
+  color: #ffffff;
+  font-family: 'Avenir LT Std';
+  font-weight: bold;
+  z-index: 3;
+  pointer-events: none;
+}
+/* Floating Credits: open state for auto-minimize support */
+.floating-credits.open .credits-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#contentWrapper {
+    max-width: 800px;
+    margin: auto;
+}
+
+
+.scrollable-songs {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-bottom: 80px; /* ensure content ends above fixed footer (footer height + extra for touch) */
+  margin-top: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #AC9D78 #21384A;
+  margin-bottom: 150px;
+}
+
+.header,
+.search-section,
+.tab-navigation,
+.footer-nav {
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+.tab-navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* Optional: Smooth scroll */
+
+/* Vertical scrollbar for scrollable-songs */
+.scrollable-songs::-webkit-scrollbar {
+  width: 6px;
+  background: #21384A;
+}
+.scrollable-songs::-webkit-scrollbar-thumb {
+  background: #AC9D78;
+  border-radius: 3px;
+}
+.scrollable-songs::-webkit-scrollbar-track {
+  background: #21384A;
+}
+
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.hamburger-menu {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+#musicaLogo {
+  width: 45vw;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.top-right-corner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 43vw;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.bottom-left-corner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 43vw;
+    max-width: 300px;
+    max-height: 300px;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body, html {
+    background-image: url('../assets/Background-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-attachment: fixed;
+    overflow: hidden; /* prevent body from scrolling */
+}
+
+
+/* Search Section */
+
+.search-section {
+    padding: 8px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Avenir LT Std';
+}
+
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    background: #2A4257;
+    border-radius: 3vw;
+    padding: 0 0.5em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+
+
+.search-input {
+    width: 100%;
+    font-size: 16px;
+    background: transparent;
+    box-sizing: border-box;
+    height: 44px;
+    border: none;
+    outline: none;
+    color: #E6E6E6;
+    padding: 0 0.5em 0 2.2em;
+    border-radius: 3vw;
+    font-family: 'Avenir LT Std';
+}
+.search-input::placeholder {
+    color: #8CB0CF;
+    opacity: 1;
+}
+
+.search-input:focus {
+    color: #fff;
+}
+
+
+
+.search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8CB0CF;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    z-index: 2;
+    background: none;
+    border: none;
+    outline: none;
+}
+.search-icon:focus,
+.search-icon:hover {
+    color: #fff;
+}
+
+/* Nav Buttons */
+
+.tab-navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-left: 0;
+  margin-left: 0;
+}
+.nav-button.songs-title-button {
+    width: 130px;
+    font-size: 15px;
+    max-width: 200px;
+    white-space: nowrap;
+    padding: 4px 4px;
+    font-family: 'Avenir LT Std';
+    background: linear-gradient(90deg, #2A4257 0%, #21384A 100%);
+    color: #F5F5F5;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(42, 66, 87, 0.08);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    outline: none;
+    letter-spacing: 0.03em;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.songs-title-button:focus,
+.songs-title-button:hover {
+    background: linear-gradient(90deg, #21384A 0%, #2A4257 100%);
+    color: #AC9D78;
+    box-shadow: 0 4px 16px rgba(42, 66, 87, 0.16);
+}
+
+.nav-button.songs-tags-button {
+    width: 130px;
+    font-size: 15px;
+    max-width: 200px;
+    white-space: nowrap;
+    padding: 4px 4px;
+    font-family: 'Avenir LT Std';
+    background: linear-gradient(90deg, #2A4257 0%, #21384A 100%);
+    color: #F5F5F5;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(42, 66, 87, 0.08);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    outline: none;
+    letter-spacing: 0.03em;
+}
+
+.songs-tags-button:focus,
+.songs-tags-button:hover {
+    background: linear-gradient(90deg, #21384A 0%, #2A4257 100%);
+    color: #AC9D78;
+    box-shadow: 0 4px 16px rgba(42, 66, 87, 0.16);
+}
+
+
+/* Floating Credits (top-right, mostly hidden, reveal on hover) */
+/* --- Stack hidden and non-hidden credits on top of each other at the same spot --- */
+.floating-credits {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  height: 35px;
+  width: auto;
+  max-width: calc(100% - 24px);
+  z-index: 1002;
+  pointer-events: auto;
+}
+
+/* Both .credits-tab and .credits-content are absolutely stacked */
+.floating-credits .credits-tab,
+.floating-credits .credits-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  min-width: 18px;
+  max-width: calc(100vw - 24px);
+}
+
+.floating-credits .credits-tab {
+  font-family: 'Avenir LT Std';
+  color: #ffffff;
+  border-radius: 12px 0 0 12px;
+  padding: 0 6px 0 2px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(42,66,87,0.18);
+  opacity: 1;
+  transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  transform: translateX(0);
+  z-index: 2;
+}
+  .floating-credits .credits-content {
+    font-family: 'Avenir LT Std';
+    color: #F5F5F5;
+    font-size: clamp(12px, 3vw, 18px);
+    border-radius: 12px 0 0 12px; /* Default: rounded when hidden */
+    padding: 0 0 0 0; /* Set padding-right to 0 */
+    margin: 0;
+    position: static;
+    box-shadow: 0 2px 8px rgba(42,66,87,0.18);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(30%);
+    transition: opacity 0.25s, transform 0.25s;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    /* Ensure hidden state is vertically aligned with header */
+    /* Auto-minimize after 5 seconds (handled by JS, but allow transition) */
+    z-index: 3;
+  }
+
+#timeRemaining {
+  font-family: 'Avenir LT Std';
+  font-size: clamp(12px, 3vw, 18px);
+  margin-left: 6px;
+  margin-right: 10px;
+}
+
+
+
+#creditsCount{
+  margin-right: 4px;
+}
+
+/* Alpha Buttons */
+.alpha-btn {
+    background: #21384A;
+    border: none;
+    color: #fff;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    outline: none;
+    font-family: 'Avenir LT Std';
+}
+
+/* Tag Buttons */
+.tags-filter-section {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 10px 0;
+    background: transparent;
+}
+.tags-filter-scroll {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 12px 10px 8px 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #AC9D78 #21384A;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tags-filter-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+.tags-filter-scroll::-webkit-scrollbar-thumb {
+    background: #AC9D78;
+    border-radius: 3px;
+}
+.tags-filter-scroll::-webkit-scrollbar-track {
+    background: #21384A;
+}
+.tag-btn {
+    background: #21384A;
+    border: none;
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 20px;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    outline: none;
+    box-shadow: 0px 2px 4px 0px rgba(140, 128, 92, 0.10);
+}
+
+.tag-btn:active,
+.tag-btn:focus {
+    background: #AC9D78;
+    color: #21384A;
+}
+
+/* Songs by Title */
+.underline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 4px;
+    border-bottom: 1px solid #ccc;
+    margin-left: 5px;
+    margin-right: 10px;
+
+}
+
+  .song-details {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+
+  .song-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .song-title {
+    font-weight: bold;
+    font-size: 5vw;
+    color: #fff;
+    font-family: 'Avenir LT Std';
+    text-transform: uppercase;
+    color: #AC9D78;
+    font-size: clamp(16px, 5vw, 32px);
+  }
+
+  .song-artist {
+    font-size: 3vw;
+    color: #bbb;
+    font-family: 'Avenir LT Std';
+    text-transform: uppercase;
+    font-size: clamp(16px, 3vw, 26px);
+  }
+
+
+  #Songs {
+  border: 1px solid #fff;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02); 
+  margin-bottom: 7vh;
+  
+}
+#Artists {
+  border: 1px solid #fff;
+  border-radius: 12px;
+  padding: 4px 0;
+  background: rgba(255, 255, 255, 0.02); 
+  margin-bottom: 7vh;
+}
+
+
+/* Footer */
+.footer-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 0 10px 0;
+    z-index: 1000;
+    box-shadow: none;
+    width: 100vw;
+    height: 3vh;
+    background: rgba(124, 114, 86, 0.7);
+    backdrop-filter: blur(35px);
+}
+
+
+.footer-btn {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #0F1A24;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Avenir LT Std';
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: color 0.2s ease;
+    gap: 8px;
+}
+
+.footer-btn svg {
+    display: block;
+    color: #0F1A24 !important;
+    fill: #0F1A24 !important;
+    stroke: #0F1A24 !important;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px;
+    min-height: 24px;
+    max-width: 24px;
+    max-height: 24px;
+    flex-shrink: 0;
+}
+.footer-btn:active,
+.footer-btn:focus {
+    color: #AC9D78;
+    outline: none;
+}
+
+.footer-btn:hover {
+    color: #AC9D78;
+}
+
+
+/* Search Page */
+.search-title{
+    font-size: clamp(18px, 5vw, 40px);
+    font-family: 'Avenir LT Std';
+    color: #AC9D78;
+    margin-left: 8px;
+}
+.artist-only-item {
+    font-weight: bold;
+    font-size: 5vw;
+    font-family: 'Avenir LT Std';
+    text-transform: uppercase;
+    color: #AC9D78;
+    font-size: clamp(16px, 5vw, 32px);
+    padding: 4px;
+}
+
+.white-outline-box-search {
+  border: 2px solid white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+
+/* Now Playing */
+.nowPlaying-title{
+    font-size: clamp(18px, 5vw, 40px);
+    font-family: 'Avenir LT Std';
+    color: #AC9D78;
+    margin-left: 1vw;
+}
+.request-title{
+    font-size: clamp(18px, 5vw, 40px);
+    font-family: 'Avenir LT Std';
+    color: #AC9D78;
+    margin-left: 1vw;
+}
+
+.now-playing-box{
+  background-color: #AC9D78;
+  border-radius: 12px;
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+}
+
+.upnext-box {
+  border: solid 1px white;
+  border-radius: 12px;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.song-details {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.song-artwork {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 12px;
+  background-color: #2A4257;
+  flex-shrink: 0;
+}
+.song-artwork-nowplayingUpNext {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 12px;
+  background-color: #2A4257;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.song-info {
+  flex-grow: 1;
+}
+
+.song-title {
+  font-weight: bold;
+  font-family: 'Avenir LT Std';
+  color: #AC9D78;
+}
+.song-title-nowplaying {
+  font-weight: bold;
+  font-family: 'Avenir LT Std';
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 5vw;
+  color: #fff;
+  font-family: 'Avenir LT Std';
+  text-transform: uppercase;
+  font-size: clamp(16px, 5vw, 32px);
+}
+
+.song-artist {
+  color: #ffffff;
+  font-size: 0.9em;
+  font-family: 'Avenir LT Std';
+}
+
+.plus-icon-box {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  border: 1px solid white;
+  border-radius: 6px;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  flex-shrink: 0;
+  font-family: 'Avenir LT Std';
+  border: 1px solid white;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.plus-icon-box-nowplaying {
+  width: 55px;
+  height: 55px;
+  font-family: 'Avenir LT Std';
+  color: #AC9D78;
+  background-color: #F5F5F5;
+  font-size: 20px;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.plus-icon-box-upnext {
+  width: 55px;
+  height: 55px;
+  font-family: 'Avenir LT Std';
+  color: #ffffff;
+  font-size: 20px;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.vote-plus-icon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 16px;
+  height: 16px;
+}
+
+.shoutOutIcon{
+  width: 20px;
+  height: 20px;
+  background-image: url('../assets/shoutout.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Menu Popup */
+.menu-popup {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 280px;
+  height: 100%;
+  background: #21384A;
+  border-right: 1px solid #AC9D78;
+  z-index: 1000;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.menu-popup.open {
+  left: 0;
+}
+
+.menu-content {
+  padding: 80px 20px 20px 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.menu-header {
+  font-family: 'Avenir LT Std';
+  font-size: 18px;
+  color: #AC9D78;
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.menu-subheader {
+  font-family: 'Avenir LT Std';
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: left;
+  opacity: 0.8;
+}
+
+.menu-item {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-family: 'Avenir LT Std';
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.menu-item:hover,
+.menu-item:focus {
+  background: rgba(172, 157, 120, 0.1);
+  border-color: #AC9D78;
+  transform: translateY(-1px);
+}
+
+.menu-item:last-child {
+  margin-bottom: 0;
+}
+
+.menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 24px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.menu-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Menu overlay for closing when clicking outside */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Disable credits interaction when menu is open */
+body.menu-open .floating-credits {
+  pointer-events: none;
+}
+
+body.menu-open .floating-credits .credits-tab {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Shoutout Modal */
+.shoutout-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoutout-modal-content {
+  background: #21384A;
+  color: #fff;
+  border-radius: 16px;
+  padding: 32px 24px 24px 24px;
+  max-width: 90vw;
+  width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  position: relative;
+  font-family: 'Avenir LT Std', sans-serif;
+}
+
+.shoutout-modal h3 {
+  color: #AC9D78;
+  margin-top: 0;
+  font-size: 1.3em;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.shoutout-input {
+  width: 100%;
+  background: #2A4257;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  color: #ffffff;
+  font-family: 'Avenir LT Std', sans-serif;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 80px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.shoutout-input::placeholder {
+  color: #8CB0CF;
+}
+
+.shoutout-input:focus {
+  outline: none;
+  border-color: #AC9D78;
+}
+
+.shoutout-modal-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.shoutout-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Avenir LT Std', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.shoutout-btn.cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.shoutout-btn.cancel:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.shoutout-btn.save {
+  background: #AC9D78;
+  color: #21384A;
+}
+
+.shoutout-btn.save:hover {
+  background: #C4B78A;
+}
+
+.shoutout-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5em;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.shoutout-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}

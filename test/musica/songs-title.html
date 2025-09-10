@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSICA - Music Jukebox</title>
+    <link rel="stylesheet" href="css/mobile-styles.css">
+</head>
+<body>
+    
+    <div id="contentWrapper">
+            <!-- Top right composite circle -->
+          <img src="assets/top-right.png" alt="" class="top-right-corner" aria-hidden="true">
+          <!-- Bottom left composite circle -->
+          <img src="assets/bottom-left.png" alt="" class="bottom-left-corner" aria-hidden="true">
+          <!-- Header -->
+          <header class="header">
+              <div class="header-container">
+          <div class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu" tabindex="0">
+                      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="32.4004" width="28" height="3.2" rx="1.6" fill="#7C7256"/>
+                        <rect x="10" y="22.4004" width="28" height="3.2" rx="1.6" fill="#7C7256"/>
+                        <rect x="10" y="12.4004" width="28" height="3.2" rx="1.6" fill="#7C7256"/>
+                      </svg>
+                  </div>
+          <div class="logo-wrapper">
+            <img id="musicaLogo" src="assets/musica-logo.png" alt="MUSICA Jukebox Logo" aria-label="hidden">
+          </div>
+          <!-- Floating Credits (hidden, reveal on hover) -->
+    <div class="floating-credits" id="floatingCredits">
+      <div class="credits-tab">
+        <span class="credits-label">Credits:</span>
+        <span class="credits-circle-wrapper">
+          <svg class="credits-circle" width="36" height="36" viewBox="0 0 36 36">
+            <circle class="credits-bg" cx="18" cy="18" r="16" fill="none" stroke="#2A4257" stroke-width="4"/>
+            <circle class="credits-progress" cx="18" cy="18" r="16" fill="none" stroke="#AC9D78" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <span class="credits-tab-value" id="creditsTabValue">3</span>
+        </span>
+      </div>
+      <div class="credits-content">
+        Next Credit in:
+        <span id="timeRemaining">4:59</span>
+      </div>
+    </div>
+        </div>
+              
+              <section class="search-section">
+                      <div class="search-wrapper">
+                          <span class="search-icon" id="searchBtn" aria-label="Search" tabindex="0">
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                  <circle cx="11" cy="11" r="8"></circle>
+                                  <path d="m21 21-4.35-4.35"></path>
+                              </svg>
+                          </span>
+                          <input type="text" id="searchInput" class="search-input" placeholder="Search for songs / artists">
+                      </div>
+              </section>
+
+              <!-- Navigation Tabs -->
+              <div class="tab-navigation">
+                      <div class="tab-list">
+                          <button class="nav-button songs-title-button" data-target="songs-title.html">Songs by Title</button>
+                          <button class="nav-button songs-tags-button" data-target="songs-tags.html">Songs by Tags</button>
+                      
+              </div>
+          </header>
+          <div class="tags-filter-scroll" id="tagsFilterScroll" tabindex="0" aria-label="Song tags filter">
+                  <!-- Example tags, replace with dynamic JS later -->
+                  <button class="alpha-btn" type="button">#</button>
+                  <button class="alpha-btn" type="button">A</button>
+                  <button class="alpha-btn" type="button">B</button>
+                  <button class="alpha-btn" type="button">C</button>
+                  <button class="alpha-btn" type="button">D</button>
+                  <button class="alpha-btn" type="button">E</button>
+                  <button class="alpha-btn" type="button">F</button>
+                  <button class="alpha-btn" type="button">G</button>
+                  <button class="alpha-btn" type="button">H</button>
+                  <button class="alpha-btn" type="button">I</button>
+                  <button class="alpha-btn" type="button">J</button>
+                  <button class="alpha-btn" type="button">K</button>
+                  <button class="alpha-btn" type="button">L</button>
+                  <button class="alpha-btn" type="button">M</button>
+                  <button class="alpha-btn" type="button">N</button>
+                  <button class="alpha-btn" type="button">O</button>
+                  <button class="alpha-btn" type="button">P</button>
+                  <button class="alpha-btn" type="button">Q</button>
+                  <button class="alpha-btn" type="button">R</button>
+                  <button class="alpha-btn" type="button">S</button>
+                  <button class="alpha-btn" type="button">T</button>
+                  <button class="alpha-btn" type="button">U</button>
+                  <button class="alpha-btn" type="button">V</button>
+                  <button class="alpha-btn" type="button">W</button>
+                  <button class="alpha-btn" type="button">X</button>
+                  <button class="alpha-btn" type="button">Y</button>
+                  <button class="alpha-btn" type="button">Z</button>
+              </div>
+
+          
+          <!-- Main Content -->
+          <main class="main-content">
+              <!-- Mock Songs List for Demo -->
+              <div class="scrollable-songs">
+                <div class="white-outline-stackABC" id="Songs">
+                </div>
+              </div>
+              
+          </main>
+
+          <!-- Tooltip for first-time users -->
+          <div class="tooltip" id="voteTooltip" style="display: none;">
+              <div class="tooltip-content">
+                  Tap icon to vote
+                  <button class="tooltip-close" id="tooltipClose">×</button>
+              </div>
+          </div>
+
+          <!-- Menu Overlay -->
+          <div class="menu-overlay" id="menuOverlay"></div>
+
+          <!-- Menu Popup -->
+          <div class="menu-popup" id="menuPopup">
+            <div class="menu-content">
+              <button class="menu-close" id="menuClose">×</button>
+              <div class="menu-header">John Doe</div>
+              <div class="menu-subheader">Welcome back!</div>
+              <button class="menu-item" id="myDetailsBtn">My Details</button>
+              <button class="menu-item" id="helpBtn">Jukebox Help</button>
+              <button class="menu-item" id="logoutBtn">Log Out</button>
+            </div>
+          </div>
+
+          <footer class="footer-nav" id="playlistBtn">
+        <button class="footer-btn home-btn playlist-btn" id="playlistBtn" aria-label="Request Upvote List">
+          <svg width="32" height="32" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.7156 2.28167L9.21564 0.0316707C8.98858 -0.036485 8.74267 0.00671972 8.55245 0.148188C8.36222 0.289657 8.25008 0.512733 8.25001 0.749796V10.8992C6.66714 9.48341 4.30996 9.36695 2.59524 10.6198C0.88053 11.8726 0.275082 14.1537 1.1428 16.092C2.01053 18.0303 4.1152 19.0981 6.19181 18.6536C8.26842 18.2092 9.75165 16.3734 9.75001 14.2498V6.25761L16.2844 8.21792C16.5114 8.28608 16.7574 8.24287 16.9476 8.1014C17.1378 7.95993 17.2499 7.73686 17.25 7.4998V2.9998C17.2499 2.66871 17.0327 2.37686 16.7156 2.28167ZM5.25001 17.2498C3.59316 17.2498 2.25001 15.9067 2.25001 14.2498C2.25001 12.5929 3.59316 11.2498 5.25001 11.2498C6.90687 11.2498 8.25001 12.5929 8.25001 14.2498C8.25001 15.9067 6.90687 17.2498 5.25001 17.2498ZM15.75 6.49198L9.75001 4.69198V1.75761L15.75 3.5623V6.49198Z" fill="#7C7256"/>
+          </svg>
+          <span>Request Upvote List</span>
+        </button>
+      </footer>
+
+      <!-- Help Modal Popup -->
+      <div class="help-modal" id="helpModal" style="display:none;">
+        <div class="help-modal-content">
+          <button class="help-modal-close" id="helpModalClose" aria-label="Close Help">×</button>
+          <h2>Jukebox Help</h2>
+          <p>
+            This is a placeholder for jukebox instructions. Here you can explain how to request songs, upvote, use credits, and more. Add your real help content here!
+          </p>
+        </div>
+      </div>
+
+      <script type="module">
+        import { fetchTildeSongs } from './js/fetchTildeSongs.js';
+
+        async function loadTildeSongs() {
+          const songs = await fetchTildeSongs();
+          const container = document.getElementById('Songs');
+          container.innerHTML = ''; // Clear static mock songs
+
+          if (!songs.length) {
+            container.innerHTML = '<p style="color:white; text-align:center;">No songs found.</p>';
+            return;
+          }
+
+          for (const song of songs) {
+            const item = document.createElement('div');
+            item.className = 'song-item';
+
+            item.innerHTML = `
+            <div class="underline">
+              <div class="song-details">
+                <div class="song-artwork" style="background-image: url('${song.image || 'assets/image-placeholder.png'}')"></div>
+                <div class="song-info">
+                  <div class="song-title">${song.title}</div>
+                  <div class="song-artist">${song.artist}</div>
+                </div>
+              </div>
+              <div class="plus-icon-box" aria-label="Vote">
+                  <svg class="vote-plus-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5v14M5 12h14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                  <span class="vote-count">1</span>
+                </div>
+            </div>
+            `;
+
+            container.appendChild(item);
+          }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadTildeSongs);
+      </script>
+      <script>
+        // Auto-minimize floating credits after 5 seconds if opened
+        const floatingCredits = document.getElementById('floatingCredits');
+        let creditsTimeout;
+
+        function openCredits() {
+          floatingCredits.classList.add('open');
+          clearTimeout(creditsTimeout);
+          creditsTimeout = setTimeout(() => {
+            floatingCredits.classList.remove('open');
+          }, 5000);
+        }
+
+        // Open on hover or focus
+        floatingCredits.addEventListener('mouseenter', openCredits);
+        floatingCredits.addEventListener('focusin', openCredits);
+
+        // Close on mouseleave or blur
+        floatingCredits.addEventListener('mouseleave', () => {
+          floatingCredits.classList.remove('open');
+          clearTimeout(creditsTimeout);
+        });
+        floatingCredits.addEventListener('focusout', () => {
+          floatingCredits.classList.remove('open');
+          clearTimeout(creditsTimeout);
+        });
+
+        // Animated countdown circle for credits
+        const CIRCLE_DURATION = 300; // seconds
+        const creditsCircle = document.querySelector('.credits-progress');
+        const timeRemainingEl = document.getElementById('timeRemaining');
+        let startTime = Date.now();
+        let timerInterval;
+
+        function animateCircle() {
+          const elapsed = Math.floor((Date.now() - startTime) / 1000);
+          const remaining = Math.max(0, CIRCLE_DURATION - elapsed);
+          const percent = remaining / CIRCLE_DURATION;
+          const radius = 16;
+          const circumference = 2 * Math.PI * radius;
+          creditsCircle.style.strokeDasharray = `${circumference}`;
+          creditsCircle.style.strokeDashoffset = `${circumference * (1 - percent)}`;
+          // Update time display (mm:ss)
+          if (timeRemainingEl) {
+            const min = Math.floor(remaining / 60);
+            const sec = remaining % 60;
+            timeRemainingEl.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+          }
+          if (remaining > 0) {
+            timerInterval = requestAnimationFrame(animateCircle);
+          } else {
+            creditsCircle.style.strokeDashoffset = circumference;
+            if (timeRemainingEl) timeRemainingEl.textContent = '0:00';
+          }
+        }
+
+        // Initialize circle
+        creditsCircle.style.transition = 'stroke-dashoffset 0.5s linear';
+        creditsCircle.style.transform = 'rotate(-90deg)'; // Start at top
+        creditsCircle.style.transformOrigin = '50% 50%';
+        animateCircle();
+      </script>
+      <script src="js/navRedirect.js" defer></script>
+      <script src="js/navFooterRedirect.js" defer></script>
+      
+      <script>
+        // Menu popup functionality
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const menuPopup = document.getElementById('menuPopup');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuClose = document.getElementById('menuClose');
+        const myDetailsBtn = document.getElementById('myDetailsBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Help Modal logic
+        const helpBtn = document.getElementById('helpBtn');
+        const helpModal = document.getElementById('helpModal');
+        const helpModalClose = document.getElementById('helpModalClose');
+
+        helpBtn.addEventListener('click', () => {
+          helpModal.style.display = 'flex';
+          closeMenu();
+        });
+        helpModalClose.addEventListener('click', () => {
+          helpModal.style.display = 'none';
+        });
+        helpModal.addEventListener('click', (e) => {
+          if (e.target === helpModal) helpModal.style.display = 'none';
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && helpModal.style.display === 'flex') {
+            helpModal.style.display = 'none';
+          }
+        });
+
+        // Open menu
+        hamburgerMenu.addEventListener('click', () => {
+          menuPopup.classList.add('open');
+          menuOverlay.classList.add('open');
+          document.body.classList.add('menu-open');
+        });
+
+        // Close menu
+        function closeMenu() {
+          menuPopup.classList.remove('open');
+          menuOverlay.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        }
+
+        menuClose.addEventListener('click', closeMenu);
+
+        // Close menu when clicking on overlay
+        menuOverlay.addEventListener('click', closeMenu);
+
+        // Menu item actions
+        myDetailsBtn.addEventListener('click', () => {
+          closeMenu();
+          // Navigate to user details page
+          window.location.href = 'user-login.html';
+        });
+
+        logoutBtn.addEventListener('click', () => {
+          closeMenu();
+          // Navigate to login page
+          window.location.href = 'user-login.html';
+        });
+
+        // Close menu with Escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && menuPopup.classList.contains('open')) {
+            closeMenu();
+          }
+        });
+      </script>
+
+    </div>
+</body>
+<style>
+  .help-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .help-modal-content {
+    background: #21384A;
+    color: #fff;
+    border-radius: 16px;
+    padding: 32px 24px 24px 24px;
+    max-width: 90vw;
+    width: 350px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    position: relative;
+    font-family: 'Avenir LT Std', sans-serif;
+    text-align: left;
+  }
+  .help-modal-content h2 {
+    color: #AC9D78;
+    margin-top: 0;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+  .help-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .help-modal-close:hover {
+    background: rgba(255,255,255,0.1);
+  }
+</style>
+</html>

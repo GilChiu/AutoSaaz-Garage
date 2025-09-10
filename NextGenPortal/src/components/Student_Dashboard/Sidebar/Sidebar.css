@@ -1,0 +1,152 @@
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  max-width: 140px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;         
+  color: #333;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav li a:hover {
+  text-decoration: underline;  
+  background-color: #f1f5f9;
+  color: #0073ff;
+}
+
+.icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+  color: #0073ff;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .sidebar-nav ul {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .sidebar-nav li {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .sidebar-header {
+    display: none;
+  }
+}
+
+.mobile-navbar {
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 10px 15px;
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-logo {
+  height: 40px;
+}
+
+.hamburger-btn {
+  background: #0073ff;
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.mobile-dropdown {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-top: 1px solid #e2e8f0;
+  animation: dropdownFade 0.3s ease;
+}
+
+.mobile-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 15px;
+  text-decoration: none;
+  color: #333;
+  transition: 0.2s ease;
+}
+
+.mobile-dropdown a:hover {
+  background: #f1f5f9;
+  color: #0073ff;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block; 
+  }
+}
+

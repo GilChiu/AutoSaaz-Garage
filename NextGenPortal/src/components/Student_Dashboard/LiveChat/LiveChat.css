@@ -1,0 +1,143 @@
+.chat-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f9fafb;
+}
+
+.chat-wrapper {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  align-self: flex-start;
+}
+
+.chat-card {
+  background: #fff;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 25px;
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  background-color: #007bd3;
+  color: white;
+  padding: 1rem 2rem;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.chat-header p {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+}
+
+.chat-messages {
+  padding: 1.5rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: #f7f7f7;
+  min-height: 300px;
+}
+
+.chat-message {
+  display: flex;
+  align-items: flex-end;
+}
+
+.chat-message.user {
+  flex-direction: row-reverse;
+}
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 10px;
+}
+
+.chat-bubble {
+  background: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  max-width: 65%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.chat-message.user .chat-bubble {
+  background-color: #007bd3;
+  color: white;
+}
+
+.chat-bubble span {
+  font-size: 0.75rem;
+  display: block;
+  margin-top: 5px;
+  text-align: right;
+  opacity: 0.7;
+}
+
+.chat-input {
+  display: flex;
+  padding: 1rem 2rem;
+  border-top: 1px solid #e0e0e0;
+  background: white;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  margin-right: 1rem;
+  outline: none;
+}
+
+.chat-input button {
+  background: #007bd3;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .chat-layout {
+    flex-direction: column;
+  }
+
+  .chat-wrapper {
+    padding: 1rem;
+  }
+
+  .chat-card {
+    border-radius: 0;
+  }
+
+  .chat-header {
+    border-radius: 0;
+  }
+}

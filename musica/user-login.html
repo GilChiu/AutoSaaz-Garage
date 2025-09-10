@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSICA - Music Jukebox</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Top right composite circle -->
+    <img src="assets/top-right.png" alt="" class="top-right-corner" aria-hidden="true">
+    <!-- Bottom left composite circle -->
+    <img src="assets/bottom-left.png" alt="" class="bottom-left-corner" aria-hidden="true">
+    <!-- Header -->
+    <main>
+        <section class="hero" aria-label="MUSICA Jukebox Hero">
+            <img src="assets/musica-logo.png" alt="MUSICA Logo" class="musica-logo">
+            <div class="p-hero">
+                    Hospitality and entertainment<br>
+                    <span class="hero-subline">with music at its heart and soul</span>
+                </p>
+            </div>
+        </section>
+        <div class="login-label">
+            Enter you MUSICA name
+        </div>
+        <form id="login-form" aria-label="User Login" autocomplete="on">
+            <input
+                class="login-input"
+                type="text"
+                id="user-id"
+                name="user-id"
+                inputmode="text"
+                autocomplete="username"
+                required
+                minlength="2"
+                maxlength="32"
+                placeholder="Nickname"
+                aria-required="true"
+                aria-label="Enter your MUSICA name"
+            >
+            <br>
+            <button class="login-button" type="submit" aria-label="Submit MUSICA name">Continue</button>
+        </form>
+        <!-- Content goes here -->
+        <!-- Content goes here -->
+    </main>
+</body>
+</html>

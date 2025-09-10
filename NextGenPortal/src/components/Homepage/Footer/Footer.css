@@ -1,0 +1,122 @@
+.footer-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+.footer-header {
+  background-color: #0074e8;
+  text-align: center;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.footer-title {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+.footer-icons-section {
+  background-color: #ffffff;
+  padding: 40px 20px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.footer-icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-icon-box img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 10px;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+.footer-icon-box p {
+  font-weight: 600;
+  font-size: 15px;
+  color: #111827;
+}
+.footer-bottom {
+  background-color: #f1f8f7;
+  text-align: center;
+  padding: 30px 20px 40px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.footer-subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 12px;
+  color: black;
+}
+.footer-description {
+  font-size: 14px;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+}
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.btn-join {
+  background-color: #0074e8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-learn {
+  background-color: white;
+  color: #1f2937;
+  padding: 10px 20px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-join:hover,
+.btn-learn:hover {
+  opacity: 0.9;
+}
+.footer-visit {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.footer-visit a {
+  color: #0074e8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-visit a:hover {
+  text-decoration: underline;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

@@ -1,0 +1,304 @@
+.sc-licensing-section {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.sc-section-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+  color: #003087;
+}
+
+.sc-section-subtitle {
+  font-size: 16px;
+  text-align: center;
+  color: #5a6b82;
+  margin-bottom: 8px;
+}
+
+.sc-underline {
+  width: 60px;
+  height: 3px;
+  background-color: #003087;
+  margin: 0 auto 32px;
+  border-radius: 2px;
+}
+
+.sc-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: nowrap; 
+  margin-bottom: 40px;
+  /* Uncomment below to allow horizontal scroll on small screens */
+  /*
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  */
+}
+
+.sc-course-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  padding: 24px 28px;
+  width: 350px;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  /* For horizontal scroll snap (if enabled) */
+  /*
+  flex: 0 0 350px;
+  scroll-snap-align: start;
+  */
+}
+
+.sc-card-orange {
+  border-top: 4px solid orange;
+}
+
+.sc-card-green {
+  border-top: 4px solid #22c55e;
+}
+
+.sc-course-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #003087;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sc-course-title a {
+  color: #003087;
+  text-decoration: none;
+}
+
+.sc-course-title a:hover {
+  text-decoration: underline;
+}
+
+.sc-course-hours {
+  font-size: 14px;
+  color: #5a6b82;
+  margin-bottom: 8px;
+}
+
+.sc-course-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #b96e00;
+  margin-bottom: 16px;
+}
+
+.sc-course-price strong {
+  font-weight: 700;
+}
+
+.sc-course-content p,
+.sc-course-content ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #4a5568;
+}
+
+.sc-course-structure-title,
+.sc-requirements-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #2d3748;
+}
+
+.sc-course-list,
+.sc-links-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.sc-links-list li {
+  margin-bottom: 6px;
+}
+
+.sc-links-list a {
+  color: #003087;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sc-links-list a:hover {
+  text-decoration: underline;
+}
+
+.sc-note-box {
+  background-color: #d7f0db;
+  font-size: 13px;
+  color: #227a1f;
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-top: 8px;
+  line-height: 1.3;
+}
+
+.sc-info-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  border-top: 1px solid #ddd;
+  padding-top: 32px;
+}
+
+.sc-info-left,
+.sc-info-right {
+  flex: 1 1 300px;
+  color: #333;
+}
+
+.sc-info-left h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #003087;
+}
+
+.sc-info-left p {
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.sc-salary-link {
+  color: #003087;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 12px;
+}
+
+.sc-salary-link:hover {
+  text-decoration: underline;
+}
+
+.sc-info-right h4 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 6px;
+  color: #2d3748;
+}
+
+.sc-info-right p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #4a5568;
+  font-size: 15px;
+  line-height: 1.4;
+}
+@media (max-width: 767px) {
+  .sc-licensing-section {
+    padding: 0 12px;
+  }
+
+  .sc-section-title {
+    font-size: 24px;
+  }
+
+  .sc-section-subtitle {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .sc-cards-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 10px;
+  }
+
+  .sc-course-card {
+    flex: 0 0 320px; 
+    width: auto;
+    padding: 20px 16px;
+    scroll-snap-align: start;
+  }
+
+  .sc-course-title {
+    font-size: 20px;
+    gap: 6px;
+  }
+
+  .sc-course-hours {
+    font-size: 13px;
+  }
+
+  .sc-course-price {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .sc-course-content p,
+  .sc-course-content ul {
+    margin-bottom: 14px;
+  }
+
+  .sc-info-section {
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 24px;
+  }
+
+  .sc-info-left,
+  .sc-info-right {
+    flex: 1 1 100%;
+  }
+
+  .sc-info-left h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .sc-info-left p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .sc-salary-link {
+    font-size: 13px;
+  }
+
+  .sc-info-right h4 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .sc-info-right p {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .sc-note-box {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .sc-cards-container {
+    flex-wrap: nowrap; 
+    justify-content: center;
+  }
+
+  .sc-course-card {
+    width: 350px;
+  }
+}

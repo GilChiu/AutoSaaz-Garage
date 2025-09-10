@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSICA - Music Jukebox</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Top right composite circle -->
+    <img src="assets/top-right.png" alt="" class="top-right-corner" aria-hidden="true">
+    <!-- Bottom left composite circle -->
+    <img src="assets/bottom-left.png" alt="" class="bottom-left-corner" aria-hidden="true">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-abs-center">
+            <div class="hamburger-menu" id="hamburgerMenu" aria-label="Open menu" tabindex="0">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="32.4004" width="28" height="3.2" rx="1.6" fill="#7C7256"/>
+                  <rect x="10" y="22.4004" width="28" height="3.2" rx="1.6" fill="#7C7256"/>
+                  <rect x="10" y="12.4004" width="28" height="3.2" rx="1.6" fill="#7C7256"/>
+                </svg>
+            </div>
+            <img src="assets/musica-logo.png" alt="MUSICA logo" class="logo" draggable="false">
+            <div class="header-spacer"></div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search for songs / artists">
+                <button class="search-btn" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Navigation Tabs -->
+    <nav class="tab-navigation">
+        <div class="container">
+            <div class="tab-list">
+                <button class="tab-btn songs-title active" data-tab="songs-title">Songs by Title</button>
+                <button class="tab-btn songs-tags" data-tab="songs-tags">Songs by Tags</button>
+                <span class="credits">Credits: <span id="creditsCount">3</span> 🕒 <span id="timeRemaining">4:39</span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="main-content">
+            <div class="alphabet-index" aria-label="Alphabet navigation">
+          <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>J</span><span>K</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span>
+        </div>
+    
+        <!-- Reduce space between songs -->
+        
+        <style>
+        .alphabet-index {
+          position: absolute;
+          right: 0;
+          top: 193px;
+          width: 44px;
+          height: 379px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          font-family: 'Avenir LT Std';
+          font-style: bold;
+          font-weight: 800;
+          font-size: 22px;
+          line-height: 26px;
+          color: #7C7256;
+          z-index: 100;
+          margin-top: 90px;
+        }
+        .alphabet-index span {
+          user-select: none;
+        }
+        @media (max-width: 500px) {
+          .alphabet-index {
+            right: 8px;
+            top: 120px;
+            width: 32px;
+            font-size: 16px;
+            height: 260px;
+          }
+        }
+        </style>
+        <style>
+            #upNextOtherSongs .vote-count-hollow-upnext {
+                display: grid;
+                justify-items: center;
+                align-items: center;
+                width: 64px;
+                height: 64px;
+                border: 2px solid #fff;
+                border-radius: 12px;
+                background: transparent;
+                box-sizing: border-box;
+                position: relative;
+                line-height: 0;
+            }
+            #upNextOtherSongs .vote-plus-icon {
+                width: 34px;
+                height: 31px;
+                display: grid;
+                place-items: center;
+            }
+            #upNextOtherSongs .vote-plus-icon svg {
+                width: 34px;
+                height: 31px;
+                display: block;
+                margin: 0;
+            }
+            #upNextOtherSongs .song-item { margin-bottom: 0px; }
+            #upNextOtherSongs .song-item:last-child { margin-bottom: 0; }
+            #upNextOtherSongs .song-title {
+                color: #AC9D78;
+                text-transform: uppercase;
+                font-size: 24px;
+            }
+            #upNextOtherSongs .song-artist {
+                font-size: 20px;
+                color: #fff;
+            }
+            #upNextOtherSongs .song-artwork {
+                width: 64px;
+                height: 64px;
+                border-radius: 8px;
+                background-size: cover;
+                background-position: center;
+                display: inline-block;
+            }
+        </style>
+        <!-- Mock Songs List for Demo -->
+        <div class="white-outline-stackABC" id="upNextOtherSongs">
+                <div class="song-item">
+                    <div class="song-artwork" style="background-image: url('assets/default-artwork.svg')"></div>
+                    <div class="song-info">
+                        <div class="song-title"></div>
+                        <div class="song-artist"></div>
+                    </div>
+                    <span class="vote-count-hollow-upnext"></span>
+                </div>
+                <div class="song-item">
+                    <div class="song-artwork" style="background-image: url('assets/default-artwork.svg')"></div>
+                    <div class="song-info">
+                        <div class="song-title"></div>
+                        <div class="song-artist"></div>
+                    </div>
+                    <span class="vote-count-hollow-upnext"><span class="vote-count-number"></span></span>
+                </div>
+                <div class="song-item">
+                    <div class="song-artwork" style="background-image: url('assets/default-artwork.svg')"></div>
+                    <div class="song-info">
+                        <div class="song-title"></div>
+                        <div class="song-artist"></div>
+                    </div>
+                    <!-- Standalone plus icon box component for perfect centering -->
+                    <!--#include file="components/WhiteBoxPlusIcon.html" -->
+                    <div class="plus-icon-box" aria-label="Add">
+                      <svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 7L17 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M25 15.5L9 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                    <style>
+                    .plus-icon-box {
+                      width: 64px;
+                      height: 64px;
+                      display: grid;
+                      place-items: center;
+                      border: 2px solid #fff;
+                      border-radius: 12px;
+                      background: transparent;
+                      box-sizing: border-box;
+                      position: relative;
+                      line-height: 0;
+                    }
+                    .plus-icon-box svg {
+                      width: 34px;
+                      height: 31px;
+                      display: block;
+                      margin: 0;
+                    }
+                    </style>
+                </div>
+                <div class="song-item">
+                    <div class="song-artwork" style="background-image: url('assets/default-artwork.svg')"></div>
+                    <div class="song-info">
+                        <div class="song-title"></div>
+                        <div class="song-artist"></div>
+                    </div>
+                    <div class="plus-icon-box" aria-label="Add">
+                      <svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 7L17 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M25 15.5L9 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                </div>
+                <div class="song-item">
+                    <div class="song-artwork" style="background-image: url('assets/default-artwork.svg')"></div>
+                    <div class="song-info">
+                        <div class="song-title"></div>
+                        <div class="song-artist"></div>
+                    </div>
+                    <div class="plus-icon-box" aria-label="Add">
+                      <svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 7L17 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M25 15.5L9 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                </div>
+                <div class="song-item">
+                    <div class="song-artwork" style="background-image: url('assets/default-artwork.svg')"></div>
+                    <div class="song-info">
+                        <div class="song-title"></div>
+                        <div class="song-artist"></div>
+                    </div>
+                    <div class="plus-icon-box" aria-label="Add">
+                      <svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 7L17 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M25 15.5L9 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+
+
+    <!-- Tooltip for first-time users -->
+    <div class="tooltip" id="voteTooltip" style="display: none;">
+        <div class="tooltip-content">
+            Tap icon to vote
+            <button class="tooltip-close" id="tooltipClose">×</button>
+        </div>
+    </div>
+    <footer class="footer-nav">
+  <button class="footer-btn home-btn playlist-btn" id="playlistBtn" aria-label="Playlist">
+    <svg width="32" height="32" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M16.7156 2.28167L9.21564 0.0316707C8.98858 -0.036485 8.74267 0.00671972 8.55245 0.148188C8.36222 0.289657 8.25008 0.512733 8.25001 0.749796V10.8992C6.66714 9.48341 4.30996 9.36695 2.59524 10.6198C0.88053 11.8726 0.275082 14.1537 1.1428 16.092C2.01053 18.0303 4.1152 19.0981 6.19181 18.6536C8.26842 18.2092 9.75165 16.3734 9.75001 14.2498V6.25761L16.2844 8.21792C16.5114 8.28608 16.7574 8.24287 16.9476 8.1014C17.1378 7.95993 17.2499 7.73686 17.25 7.4998V2.9998C17.2499 2.66871 17.0327 2.37686 16.7156 2.28167ZM5.25001 17.2498C3.59316 17.2498 2.25001 15.9067 2.25001 14.2498C2.25001 12.5929 3.59316 11.2498 5.25001 11.2498C6.90687 11.2498 8.25001 12.5929 8.25001 14.2498C8.25001 15.9067 6.90687 17.2498 5.25001 17.2498ZM15.75 6.49198L9.75001 4.69198V1.75761L15.75 3.5623V6.49198Z" fill="#7C7256"/>
+    </svg>
+    <span>Playlist</span>
+  </button>
+</footer>
+    <script type="module">
+  import { fetchTildeSongs } from './js/fetchTildeSongs.js';
+
+  async function loadTildeSongs() {
+    const songs = await fetchTildeSongs();
+    const container = document.getElementById('upNextOtherSongs');
+    container.innerHTML = ''; // Clear static mock songs
+
+    if (!songs.length) {
+      container.innerHTML = '<p style="color:white; text-align:center;">No songs found.</p>';
+      return;
+    }
+
+    for (const song of songs) {
+      const item = document.createElement('div');
+      item.className = 'song-item';
+
+      item.innerHTML = `
+        <div class="song-artwork" style="background-image: url('${song.image || 'assets/default-artwork.svg'}')"></div>
+        <div class="song-info">
+          <div class="song-title">${song.title}</div>
+          <div class="song-artist">${song.artist}</div>
+        </div>
+        <div class="plus-icon-box" aria-label="Add">
+          <svg width="34" height="31" viewBox="0 0 34 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 7L17 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M25 15.5L9 15.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      `;
+
+      container.appendChild(item);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadTildeSongs);
+</script>
+</body>
+</html>
