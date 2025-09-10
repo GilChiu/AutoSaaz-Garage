@@ -1,0 +1,20 @@
+CREATE TABLE bookings (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    business_id INT NOT NULL,
+    customer_name VARCHAR(255) NOT NULL,
+    customer_email VARCHAR(255) NOT NULL,
+    customer_phone VARCHAR(20),
+    vehicle_make VARCHAR(100) NOT NULL,
+    vehicle_model VARCHAR(100) NOT NULL,
+    vehicle_year INT NOT NULL,
+    service_type VARCHAR(255) NOT NULL,
+    appointment_date TIMESTAMP NOT NULL,
+    status VARCHAR(50) DEFAULT 'pending' CHECK (status IN ('pending', 'confirmed', 'cancelled', 'completed')),
+    priority VARCHAR(20) DEFAULT 'medium' CHECK (priority IN ('low', 'medium', 'high')),
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (business_id) REFERENCES businesses(id) ON DELETE CASCADE
+);
